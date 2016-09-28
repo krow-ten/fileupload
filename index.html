@@ -1,0 +1,19 @@
+<form>
+  <input type=file name=file />
+  <input type="submit" />
+</form>
+
+
+<script>
+  window.onsubmit = function(e) {
+    e.preventDefault();
+    var form = new FormData(document.querySelector('form'))
+    document.writeln('Submittin')
+    fetch('/save', {
+        method: 'post',
+        body: form
+      }).then(function(data) {
+          document.writeln('BOOYAH!');
+      })
+  }
+</script>
